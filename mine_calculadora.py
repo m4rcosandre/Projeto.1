@@ -1,43 +1,50 @@
+#Função para somar dois números 
 def soma(n1,n2):
     resultado = n1 + n2
-    print(f"O resultado da soma é: {resultado}:")
-    
+    print(f"O resultado da soma é: {resultado}")
+
+#Função para subtrair dois números     
 def subtracao(n1,n2):
     resultado = n1 - n2
-    print(f"O resultado da subtração é: {resultado}:")
+    print(f"O resultado da subtração é: {resultado}")
 
-def multiplicaçao(n1,n2):
+#Função para multiplicar dois números 
+def multiplicacao(n1,n2):
     resultado = n1 * n2
-    print(f"O resultado da Multiplicação é: {resultado}:")
+    print(f"O resultado da Multiplicação é: {resultado}")
 
+#Função para dividir dois números 
 def divisao(n1,n2):
     resultado = n1 / n2
-    print(f"O resultado da Divisão é: {resultado}:")    
+    print(f"O resultado da Divisão é: {resultado}")    
 
-nome = input('Seja bem vindo a sua cauculadora em Python. Para começarmos, gostaria de saber primeiro o seu nome: ')
+#Apresentação
+nome = input('Seja bem-vindo à sua calculadora em Python. Para começarmos, gostaria de saber primeiro o seu nome: ')
 
-print(f"Seja bem vindo {nome}!!")
+print(f"Seja bem-vindo, {nome}!")
+
+#Começando o looping do programa
 while True:
-  n1 =input("Por gentileza, diga o primeiro número da sua preferência: ")
-
-  if not n1.isdigit():
-    print("Infelizmente não conseguimos identificar o número, vamos tentar novamente...")
-    continue
-  else:
+  try:
+    n1 =float(input("Por gentileza, diga o primeiro número da sua preferência: "))
     print(f"Certo, o número digitado foi: {n1}")
-
-  n2 = input("Agora digite o Segundo Número: ")
-
-  if not n2.isdigit():
-    print("Infelizmente não conseguimos identificar o número, vamos tentar novamente...")
+  except ValueError:
+    print("Esse número não é válido")
     continue
-  else:
+  try:  
+    n2 = float(input("Agora digite o Segundo Número: "))
     print(f"Certo, o segundo número digitado foi: {n2}")
+  except ValueError:
+    print("Esse número não é válido")
+    continue
+    
   
   operador = input("Agora gostaria que você me falasse o operador desejado:\n[So]ma \n[Su]btração \n[M]ultiplicação \n[D]ivisão \n").lower()
 
+  #Caso o cliente escolha soma...
+
   if operador == "so":
-    soma(int(n1),int(n2))
+    soma(n1,n2)
     outro = input("Gostaria de falar outro número [S]im ou [N]ão?: ").lower()
     if outro == "s":
       continue
@@ -47,9 +54,11 @@ while True:
     else: 
       print("Não consegui entender, com isso iremos finalizar por aqui, muito obrigado!!")
       break
-
+  
+  #Caso o cliente escolha subtração
+  
   if operador == "su":
-    subtracao(int(n1),int(n2))
+    subtracao(n1,n2)
     outro =  input("Gostaria de falar outro número [S]im ou [N]ão?: ").lower()
     if outro == "s":
       continue
@@ -60,8 +69,10 @@ while True:
       print("Não consegui entender, com isso iremos finalizar por aqui, muito obrigado!!")
       break
 
+  #Caso o cliente escolha multiplicação
+  
   if operador == "m":
-    multiplicaçao(int(n1),int(n2))
+    multiplicacao(n1,n2)
     outro =  input("Gostaria de falar outro número [S]im ou [N]ão?: ").lower()
     if outro == "s":
       continue
@@ -71,8 +82,11 @@ while True:
     else: 
       print("Não consegui entender, com isso iremos finalizar por aqui, muito obrigado!!")
       break
+
+  #Caso o cliente escolha divisão
+  
   if operador == "d":
-    divisao(int(n1),int(n2))
+    divisao(n1,n2)
     outro =  input("Gostaria de falar outro número [S]im ou [N]ão?: ").lower()
     if outro == "s":
       continue
@@ -85,15 +99,3 @@ while True:
   else:
     print("Não identificamos o operador, tente novamente...")
     continue
-
-
-
-
-
-
-
-
-
-
-
-
